@@ -1,0 +1,1 @@
+# spring-multimodule-with-common-authentication-example
