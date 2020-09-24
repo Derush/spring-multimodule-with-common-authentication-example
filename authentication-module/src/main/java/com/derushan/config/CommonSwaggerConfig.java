@@ -4,7 +4,9 @@
 package com.derushan.config;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,6 +37,7 @@ public class CommonSwaggerConfig {
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(generateAPIInfo()).select()
 				.apis(RequestHandlerSelectors.basePackage("com.derushan.controllers")).paths(PathSelectors.any())
 				.build()
+				.produces(getAllProduceContentTypes())
 				.securitySchemes(Lists.newArrayList(apiKey()))
                 .securityContexts(Arrays.asList(securityContext()));
 	}
@@ -65,5 +68,12 @@ public class CommonSwaggerConfig {
         authorizationScopes[0] = authorizationScope;
         return Arrays.asList(new SecurityReference("Bearer",
                 authorizationScopes));
+	}
+	
+	private Set<String> getAllProduceContentTypes() {
+        Set<String> produces = new HashSet<>();
+        // Add other media types if required in future
+        produces.add("application/json");
+        return produces;
     }
 }

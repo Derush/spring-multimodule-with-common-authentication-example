@@ -10,7 +10,7 @@ package com.derushan.common;
 public class Constants {
 		// Common Contant
 		public static final String BASE_URI_COMMON = "/api/v1";
-		public static final String BASE_URI_AUTH = "/api/auth";
+		public static final String BASE_URI_AUTH = "/api/v1/auth";
 
 		// HTTP Status Codes
 		public static final Integer CODE_HTTP_SUCCESS = 200;
